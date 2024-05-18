@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  dst_server:
+      image: ubuntu:24.04
+      container_name: dst_server_container
+      command: sh -c "apt-get update && apt-get upgrade && apt-get install -y sudo && apt-get install -y openssh-server"
+      ports:
+       - "2222:22"
+      volumes:
+       - ./data:/etc/data
